@@ -1,6 +1,5 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
-import { withBasePath } from "./lib/basePath";
 
 export default function Home() {
   return (
@@ -54,11 +53,11 @@ export default function Home() {
               </div>
             </div>
 
-            <aside className="rounded-2xl border border-emerald-100 bg-emerald-50 p-5 text-slate-800 shadow-lg">
+            <aside className="rounded-2xl border border-amber-100 bg-amber-50 p-5 text-slate-800 shadow-lg">
               <div className="flex items-center gap-4">
                 <div className="h-20 w-20 overflow-hidden rounded-2xl border border-white/20">
                   <Image
-                    src={withBasePath("/image1.jpg")}
+                    src="/image1.jpg"
                     alt="Portrait of Yue Wu"
                     width={160}
                     height={160}
@@ -75,19 +74,19 @@ export default function Home() {
               </div>
 
               <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
-                <div className="rounded-xl border border-emerald-100 bg-white/70 p-3">
+                <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
                   <dt className="text-slate-500">Focus</dt>
                   <dd className="mt-1 font-semibold text-slate-900">LCA & MFA</dd>
                 </div>
-                <div className="rounded-xl border border-emerald-100 bg-white/70 p-3">
+                <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
                   <dt className="text-slate-500">Research</dt>
                   <dd className="mt-1 font-semibold text-slate-900">Sustainable Systems & Decarbonization</dd>
                 </div>
-                <div className="rounded-xl border border-emerald-100 bg-white/70 p-3">
+                <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
                   <dt className="text-slate-500">Current</dt>
                   <dd className="mt-1 font-semibold text-slate-900">UNEP Intern</dd>
                 </div>
-                <div className="rounded-xl border border-emerald-100 bg-white/70 p-3">
+                <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
                   <dt className="text-slate-500">Open To</dt>
                   <dd className="mt-1 font-semibold text-slate-900">Research & Consulting</dd>
                 </div>
@@ -292,7 +291,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-10 rounded-3xl bg-emerald-50 p-6 text-slate-800 shadow-xl md:p-8">
+        <section className="mt-10 rounded-3xl bg-amber-50 p-6 text-slate-800 shadow-xl md:p-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
