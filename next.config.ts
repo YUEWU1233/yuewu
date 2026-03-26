@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: process.env.NODE_ENV === "production" ? "/yuewu" : "",
+  basePath: isGithubPages ? "/yuewu" : "",
   images: {
     unoptimized: true,
   },
