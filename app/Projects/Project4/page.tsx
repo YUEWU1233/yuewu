@@ -1,5 +1,6 @@
 ﻿import BackButton from "../../BackButton";
 import Image from "next/image";
+import { withBasePath } from "../../lib/basePath";
 
 export default function Project4Page() {
   return (
@@ -21,7 +22,7 @@ export default function Project4Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src="/DPP.jpg"
+            src={withBasePath("/DPP.jpg")}
             alt="Digital Product Passport interface preview"
             width={1400}
             height={840}
@@ -86,7 +87,7 @@ export default function Project4Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src="/project0.jpg"
+            src={withBasePath("/project0.jpg")}
             alt="Logitech sustainability communication visual"
             width={1400}
             height={840}

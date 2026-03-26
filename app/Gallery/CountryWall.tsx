@@ -3,6 +3,7 @@
 import Image from "next/image";
 import BackButton from "../BackButton";
 import { useEffect, useState } from "react";
+import { withBasePath } from "../lib/basePath";
 
 type CountryWallProps = {
   title: string;
@@ -59,7 +60,7 @@ export default function CountryWall({
 
             <div className="relative h-[52vh] min-h-[320px] w-full md:h-[62vh] md:min-h-[420px]">
               <Image
-                src={currentImage.src}
+                src={withBasePath(currentImage.src)}
                 alt={currentImage.alt || `Gallery Photo ${idx + 1}`}
                 fill
                 className="object-contain"

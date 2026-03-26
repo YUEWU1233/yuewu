@@ -1,5 +1,6 @@
 ﻿import Image from "next/image";
 import BackButton from "../../BackButton";
+import { withBasePath } from "../../lib/basePath";
 
 export default function Project1Page() {
   return (
@@ -20,7 +21,7 @@ export default function Project1Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src="/communication-Sonceboz-0.jpg"
+            src={withBasePath("/communication-Sonceboz-0.jpg")}
             alt="Sonceboz project visual"
             width={1400}
             height={840}
@@ -91,7 +92,7 @@ export default function Project1Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src="/communication-Sonceboz-1.jpg"
+            src={withBasePath("/communication-Sonceboz-1.jpg")}
             alt="Sonceboz workshop and communication visual"
             width={1400}
             height={840}

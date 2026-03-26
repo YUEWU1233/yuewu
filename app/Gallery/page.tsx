@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
+import { withBasePath } from "../lib/basePath";
 
 type GalleryCard = {
   title: string;
@@ -79,7 +80,7 @@ export default function GalleryPage() {
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
               <Image
-                src={card.image}
+                src={withBasePath(card.image)}
                 alt={card.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

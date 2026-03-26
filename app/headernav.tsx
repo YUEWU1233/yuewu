@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { NavList } from "./navlist";
 import React, { useState, useEffect, useRef } from "react";
+import { withBasePath } from "./lib/basePath";
 
 export default function HeaderNav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function HeaderNav() {
         <div className="container mx-auto flex text-white items-center justify-between">
           <button className="" onClick={() => setIsNavOpen(!isNavOpen)}>
             <Image
-              src="hamburger-menu.svg"
+              src={withBasePath("/hamburger-menu.svg")}
               alt="Menu"
               width={24}
               height={24}

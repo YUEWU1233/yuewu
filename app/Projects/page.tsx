@@ -1,5 +1,6 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
+import { withBasePath } from "../lib/basePath";
 
 type ProjectCard = {
   title: string;
@@ -62,7 +63,7 @@ export default function ProjectsPage() {
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
               <Image
-                src={project.image}
+                src={withBasePath(project.image)}
                 alt={project.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

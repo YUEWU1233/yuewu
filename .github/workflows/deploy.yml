@@ -42,7 +42,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: "/yuewu"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

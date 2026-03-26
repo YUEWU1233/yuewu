@@ -1,8 +1,10 @@
+import { withBasePath } from "../lib/basePath";
+
 export default function ResumePage() {
   return (
     <main className="resume-page">
       <div className="header">
-        <img src="/image2.jpg" alt="Yue Wu" className="photo" />
+        <img src={withBasePath("/image2.jpg")} alt="Yue Wu" className="photo" />
         <div>
           <div className="name">Yue Wu</div>
           <div className="contact-info">

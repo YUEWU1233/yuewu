@@ -1,5 +1,6 @@
 ﻿import BackButton from "../../BackButton";
 import Image from "next/image";
+import { withBasePath } from "../../lib/basePath";
 
 export default function Project2Page() {
   return (
@@ -20,7 +21,7 @@ export default function Project2Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src="/project2.jpg"
+            src={withBasePath("/project2.jpg")}
             alt="Bio lab tube comparison project visual"
             width={1400}
             height={840}
