@@ -5,8 +5,8 @@ export default function ItalyPage() {
     <CountryWall
       title="Italy"
       images={[
-        { src: "/Florence.jpg", alt: "Italy" },
-        { src: "/Venise.jpg", alt: "Venice, Italy" },
+        { src: "/gallery/italy/Florence.jpg", alt: "Italy" },
+        { src: "/gallery/italy/Venise.jpg", alt: "Venice, Italy" },
       ]}
     />
   );

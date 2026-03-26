@@ -13,25 +13,25 @@ const projects: ProjectCard[] = [
   {
     title: "Digital Product Passport and Dynamic Carbon Calculator for Logitech",
     href: "/Projects/Project4",
-    image: "/project4.png",
+    image: "/project/project4/project4.png",
     alt: "Digital Product Passport project preview",
   },
   {
     title: "Carbon Reduction Project for Sonceboz",
     href: "/Projects/Project1",
-    image: "/project1.jpg",
+    image: "/project/project1/project1.jpg",
     alt: "Carbon reduction project preview",
   },
   {
     title: "Life Cycle Assessment for Bio Lab Tube Comparison",
     href: "/Projects/Project2",
-    image: "/project2.jpg",
+    image: "/project/project2/project2.jpg",
     alt: "Life cycle assessment project preview",
   },
   {
     title: "Machine Learning for French Text Analyzing",
     href: "/Projects/Project3",
-    image: "/project3.jpg",
+    image: "/project/project3/project3.jpg",
     alt: "Machine learning text analysis project preview",
   },
 ];

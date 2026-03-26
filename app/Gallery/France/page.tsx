@@ -5,11 +5,11 @@ export default function FrancePage() {
     <CountryWall
       title="France"
       images={[
-        { src: "/France.jpg", alt: "France" },
-        { src: "/France1.jpg", alt: "France" },
-        { src: "/Paris.jpg", alt: "Paris, France" },
-        { src: "/Paris1.jpg", alt: "Paris, France" },
-        { src: "/Paris2.jpg", alt: "Paris, France" },
+        { src: "/gallery/france/France.jpg", alt: "France" },
+        { src: "/gallery/france/France1.jpg", alt: "France" },
+        { src: "/gallery/france/Paris.jpg", alt: "Paris, France" },
+        { src: "/gallery/france/Paris1.jpg", alt: "Paris, France" },
+        { src: "/gallery/france/Paris2.jpg", alt: "Paris, France" },
       ]}
     />
   );

@@ -43,14 +43,12 @@ export default function Home() {
                 >
                   View Projects
                 </Link>
-                <a
+                <Link
                   href="/CV"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition-transform duration-300 hover:-translate-y-0.5 hover:border-slate-500"
                 >
                   Explore CV
-                </a>
+                </Link>
               </div>
             </div>
 

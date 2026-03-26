@@ -4,7 +4,7 @@ export default function HungaryPage() {
   return (
     <CountryWall
       title="Hungary"
-      images={[{ src: "/Hungary.jpg", alt: "Hungary" }]}
+      images={[{ src: "/gallery/hungary/Hungary.jpg", alt: "Hungary" }]}
     />
   );
 }

@@ -22,7 +22,7 @@ export default function Project4Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src={withBasePath("/DPP.jpg")}
+            src={withBasePath("/project/project4/DPP.jpg")}
             alt="Digital Product Passport interface preview"
             width={1400}
             height={840}
@@ -87,7 +87,7 @@ export default function Project4Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src={withBasePath("/project0.jpg")}
+            src={withBasePath("/project/project4/project0.jpg")}
             alt="Logitech sustainability communication visual"
             width={1400}
             height={840}

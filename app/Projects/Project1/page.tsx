@@ -21,7 +21,7 @@ export default function Project1Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src={withBasePath("/communication-Sonceboz-0.jpg")}
+            src={withBasePath("/project/project1/communication-Sonceboz-0.jpg")}
             alt="Sonceboz project visual"
             width={1400}
             height={840}
@@ -92,7 +92,7 @@ export default function Project1Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src={withBasePath("/communication-Sonceboz-1.jpg")}
+            src={withBasePath("/project/project1/communication-Sonceboz-1.jpg")}
             alt="Sonceboz workshop and communication visual"
             width={1400}
             height={840}

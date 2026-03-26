@@ -4,7 +4,7 @@ export default function GreecePage() {
   return (
     <CountryWall
       title="Greece"
-      images={[{ src: "/Gallery2.jpg", alt: "Greece" }]}
+      images={[{ src: "/gallery/greece/Gallery2.jpg", alt: "Greece" }]}
     />
   );
 }

@@ -5,9 +5,9 @@ export default function BelgiumPage() {
     <CountryWall
       title="Belgium"
       images={[
-        { src: "/Belgium.jpg", alt: "Belgium" },
-        { src: "/Belgium1.jpg", alt: "Belgium" },
-        { src: "/Belgium2.jpg", alt: "Belgium" },
+        { src: "/gallery/belgium/Belgium.jpg", alt: "Belgium" },
+        { src: "/gallery/belgium/Belgium1.jpg", alt: "Belgium" },
+        { src: "/gallery/belgium/Belgium2.jpg", alt: "Belgium" },
       ]}
     />
   );

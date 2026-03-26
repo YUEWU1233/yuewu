@@ -21,7 +21,7 @@ export default function Project3Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src={withBasePath("/project3_1.jpg")}
+            src={withBasePath("/project/project3/project3_1.jpg")}
             alt="French text machine learning project"
             width={1400}
             height={840}

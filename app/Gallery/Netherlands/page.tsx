@@ -5,12 +5,12 @@ export default function NetherlandsPage() {
     <CountryWall
       title="Netherlands"
       images={[
-        { src: "/Netherlands.jpg", alt: "Netherlands" },
-        { src: "/Netherlands1.jpg", alt: "Netherlands" },
-        { src: "/Netherlands2.jpg", alt: "Netherlands" },
-        { src: "/Netherlands3.jpg", alt: "Netherlands" },
-        { src: "/Netherlands4.jpg", alt: "Netherlands" },
-        { src: "/Netherlands5.jpg", alt: "Netherlands" },
+        { src: "/gallery/netherlands/Netherlands.jpg", alt: "Netherlands" },
+        { src: "/gallery/netherlands/Netherlands1.jpg", alt: "Netherlands" },
+        { src: "/gallery/netherlands/Netherlands2.jpg", alt: "Netherlands" },
+        { src: "/gallery/netherlands/Netherlands3.jpg", alt: "Netherlands" },
+        { src: "/gallery/netherlands/Netherlands4.jpg", alt: "Netherlands" },
+        { src: "/gallery/netherlands/Netherlands5.jpg", alt: "Netherlands" },
       ]}
     />
   );
