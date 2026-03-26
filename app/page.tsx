@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
+import { withBasePath } from "./lib/basePath";
 
 export default function Home() {
   return (
@@ -57,7 +58,7 @@ export default function Home() {
               <div className="flex items-center gap-4">
                 <div className="h-20 w-20 overflow-hidden rounded-2xl border border-white/20">
                   <Image
-                    src="/image1.jpg"
+                    src={withBasePath("/image1.jpg")}
                     alt="Portrait of Yue Wu"
                     width={160}
                     height={160}
