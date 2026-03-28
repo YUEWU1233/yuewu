@@ -19,7 +19,7 @@ const BackButton = ({ href, className = "" }: BackButtonProps) => {
   };
 
   return (
-    <div className={`mb-4 fixed top-14 left-4 z-40 lg:left-72 ${className}`}>
+    <div className={`mb-4 ${className}`}>
       {href ? (
         <Link
           href={href}
