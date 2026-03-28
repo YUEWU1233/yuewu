@@ -34,6 +34,19 @@ const projects: ProjectCard[] = [
     image: "/project/project3/project3.jpg",
     alt: "Machine learning text analysis project preview",
   },
+  {
+    title: "Decarbonizing Residential Heating Systems in Geneva: A Material Flow Analysis Approach",
+    href: "/Projects/Project5",
+    image: "/project/project5/Project5_front.png",
+    alt: "Decarbonizing residential heating systems project preview",
+  },
+  {
+    title:
+      "Carbon-Aware Portfolio Construction and Performance Analysis in Pacific Equity Markets",
+    href: "/Projects/Project6",
+    image: "/project/project6/project6.png",
+    alt: "Carbon-aware portfolio project preview",
+  },
 ];
 
 export default function ProjectsPage() {

@@ -17,6 +17,57 @@ type CountryShape = {
   center: [number, number];
 };
 
+type Position = [number, number];
+
+function ringAreaAbs(ring: Position[]): number {
+  if (ring.length === 0) return 0;
+
+  let twiceArea = 0;
+
+  for (let i = 0; i < ring.length - 1; i += 1) {
+    const [x1, y1] = ring[i];
+    const [x2, y2] = ring[i + 1];
+    const cross = x1 * y2 - x2 * y1;
+    twiceArea += cross;
+  }
+
+  return Math.abs(twiceArea / 2);
+}
+
+function keepMainlandGeometry(
+  geometry: Record<string, unknown> | undefined,
+  center: Position
+): Record<string, unknown> | undefined {
+  if (!geometry || typeof geometry !== "object") return geometry;
+
+  const type = geometry.type;
+  const coords = geometry.coordinates;
+
+  if (type !== "MultiPolygon" || !Array.isArray(coords) || coords.length === 0) {
+    return geometry;
+  }
+
+  const bestPolygon = coords
+    .filter((poly): poly is Position[][] =>
+      Array.isArray(poly) && poly.length > 0 && Array.isArray(poly[0])
+    )
+    .map((poly) => {
+      const outerRing = poly[0] as Position[];
+      return {
+        poly,
+        area: ringAreaAbs(outerRing),
+      };
+    })
+    .sort((a, b) => b.area - a.area)[0]?.poly;
+
+  if (!bestPolygon) return geometry;
+
+  return {
+    type: "Polygon",
+    coordinates: bestPolygon,
+  };
+}
+
 const countries: CountryShape[] = [
   {
     key: "china",
@@ -389,8 +440,8 @@ export default function TravelHistoryMap() {
         container: mapContainerRef.current,
         style: LOCAL_MAP_STYLE as never,
         center: [12, 47],
-        zoom: 3.2,
-        minZoom: 2.5,
+        zoom: 1.5,
+        minZoom: 1,
         maxZoom: 8,
       });
 
@@ -535,6 +586,10 @@ export default function TravelHistoryMap() {
                     : {};
                 return {
                   ...feature,
+                  geometry: keepMainlandGeometry(
+                    feature.geometry as Record<string, unknown> | undefined,
+                    country.center
+                  ),
                   properties: {
                     ...originalProperties,
                     key: country.key,
@@ -589,7 +644,7 @@ export default function TravelHistoryMap() {
     setSelectedKey(null);
     const map = mapRef.current;
     if (!map) return;
-    map.flyTo({ center: [12, 47], zoom: 3.2, duration: 700 });
+    map.flyTo({ center: [12, 47], zoom: 1.9, duration: 700 });
   };
 
   return (
@@ -609,7 +664,7 @@ export default function TravelHistoryMap() {
             aria-label="Interactive travel map"
           />
           <p className="mt-2 text-xs text-slate-500">
-            Boundary style: local GeoJSON with offline-first rendering.
+            The political administrative boundaries are provided by the open database geoBoundaries under the CC BY 4.0 license. The use of the boundary data does not represent any political stance of the author.
           </p>
           {loadError ? (
             <p className="mt-2 text-xs text-rose-600">{loadError}</p>

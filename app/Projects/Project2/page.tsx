@@ -76,6 +76,18 @@ export default function Project2Page() {
           This study contributes to broader efforts in sustainable lab
           practices and supports decision-making toward greener consumable use.
         </p>
+
+        <p className="mt-6 text-sm text-slate-700 md:text-base">
+          Full text: please  {" "}
+          <a
+            href="https://drive.google.com/file/d/1uJdxls5FxT2xYdNvSM8DHk8F2wPr2MrM/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
+          >
+            click here.
+          </a>
+        </p>
       </article>
     </main>
   );

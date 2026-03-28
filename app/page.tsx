@@ -72,22 +72,22 @@ export default function Home() {
                 </div>
               </div>
 
-              <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
+              <dl className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                 <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
-                  <dt className="text-slate-500">Focus</dt>
-                  <dd className="mt-1 font-semibold text-slate-900">LCA & MFA</dd>
+                  <dt className="text-slate-500 text-xs md:text-sm">Focus</dt>
+                  <dd className="mt-1 font-semibold text-slate-900 text-xs md:text-sm">LCA & MFA</dd>
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
-                  <dt className="text-slate-500">Research</dt>
-                  <dd className="mt-1 font-semibold text-slate-900">Sustainable Systems & Decarbonization</dd>
+                  <dt className="text-slate-500 text-xs md:text-sm">Research</dt>
+                  <dd className="mt-1 font-semibold text-slate-900 text-xs md:text-sm">Sustainable Systems & Decarbonization</dd>
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
-                  <dt className="text-slate-500">Current</dt>
-                  <dd className="mt-1 font-semibold text-slate-900">UNEP Intern</dd>
+                  <dt className="text-slate-500 text-xs md:text-sm">Current</dt>
+                  <dd className="mt-1 font-semibold text-slate-900 text-xs md:text-sm">UNEP Intern</dd>
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
-                  <dt className="text-slate-500">Open To</dt>
-                  <dd className="mt-1 font-semibold text-slate-900">Research & Consulting</dd>
+                  <dt className="text-slate-500 text-xs md:text-sm">Open To</dt>
+                  <dd className="mt-1 font-semibold text-slate-900 text-xs md:text-sm">Research & Consulting</dd>
                 </div>
               </dl>
             </aside>
@@ -99,7 +99,7 @@ export default function Home() {
             href="/Projects"
             className="group rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] md:tracking-[0.14em] text-slate-500">
               Work
             </p>
             <h2
@@ -120,7 +120,7 @@ export default function Home() {
             href="/Publication"
             className="group rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] md:tracking-[0.14em] text-slate-500">
               Research
             </p>
             <h2
@@ -141,7 +141,7 @@ export default function Home() {
             href="/Gallery"
             className="group rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] md:tracking-[0.14em] text-slate-500">
               Photography
             </p>
             <h2

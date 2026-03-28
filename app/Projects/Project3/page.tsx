@@ -76,6 +76,18 @@ export default function Project3Page() {
           practical and accessible tool for learners, teachers, and content
           creators in the language education space.
         </p>
+
+        <p className="mt-6 text-sm text-slate-700 md:text-base">
+          If you want to learn more information and code, please  {" "}
+          <a
+            href="https://github.com/YUEWU1233/ML_French_Blancpain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
+          >
+            click here.
+          </a>
+        </p>
       </article>
     </main>
   );

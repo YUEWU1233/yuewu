@@ -14,14 +14,17 @@ const NavItem = ({
   const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <li
-      className={`p-2 rounded-sm ${
-        isActive ? "bg-secondary-darker" : "hover:bg-secondary-darker"
-      }`}
-    >
+    <li className="relative">
+      {isActive && (
+        <span className="absolute inset-y-2 left-0 w-1 rounded-r-full bg-emerald-300" />
+      )}
       <Link
         href={href}
-        className={isActive ? "text-white" : "text-gray-300 hover:text-white"}
+        className={`flex w-full items-center rounded-xl px-3 py-2.5 transition-all duration-200 ${
+          isActive
+            ? "bg-white/14 text-white shadow-sm shadow-black/10"
+            : "text-emerald-50/80 hover:bg-white/10 hover:text-white"
+        }`}
       >
         {children}
       </Link>
@@ -36,41 +39,40 @@ export const NavList = ({
 }) => {
   return (
     <div
-      className="bg-secondary px-4 py-2 text-white"
+      className="bg-transparent px-4 pb-5 pt-1 text-white"
       onClick={() => setIsNavOpen(false)}
     >
-      <ul className="flex flex-col space-y-1">
+      <ul className="flex flex-col space-y-1.5">
         <NavItem href="/">
-          <div className="flex items-center space-x-2">
-            <span>🏠</span>
+          <div className="flex items-center space-x-2.5">
+            <span className="text-base">🏠</span>
             <span>About me</span>
           </div>
         </NavItem>
         <NavItem href="/Projects">
-          <div className="flex items-center space-x-2">
-            <span>🌱</span>
+          <div className="flex items-center space-x-2.5">
+            <span className="text-base">🌱</span>
             <span>Projects</span>
           </div>
         </NavItem>
         <NavItem href="/Publication">
-          <span className="flex items-center space-x-2">
-            <span>📚</span>
+          <span className="flex items-center space-x-2.5">
+            <span className="text-base">📚</span>
             <span>Publication</span>
           </span>
         </NavItem>
         <NavItem href="/CV">
-          <div className="flex items-center space-x-2">
-            <span>📄</span>
+          <div className="flex items-center space-x-2.5">
+            <span className="text-base">📄</span>
             <span>CV</span>
           </div>
         </NavItem>
         <NavItem href="/Gallery">
-          <div className="flex items-center space-x-2">
-            <span>🖼️</span>
+          <div className="flex items-center space-x-2.5">
+            <span className="text-base">🖼️</span>
             <span>Gallery</span>
           </div>
         </NavItem>
-        
       </ul>
     </div>
   );
