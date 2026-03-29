@@ -1,0 +1,29 @@
+<svg width="1400" height="840" viewBox="0 0 1400 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="70" x2="1260" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1100 180) rotate(143) scale(480)">
+      <stop stop-color="#BAE6FD" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#BAE6FD" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1400" height="840" fill="url(#bg)"/>
+  <rect width="1400" height="840" fill="url(#shine)"/>
+
+  <g opacity="0.38" stroke="#CFFAFE" stroke-width="2">
+    <path d="M90 640C260 510 440 670 590 580C760 480 940 410 1260 470"/>
+    <path d="M120 720C310 590 450 770 640 680C810 590 1010 500 1290 540"/>
+    <path d="M150 560C300 430 470 600 630 500C790 400 980 330 1220 360"/>
+  </g>
+
+  <rect x="118" y="118" width="248" height="248" rx="28" fill="#ECFEFF" fill-opacity="0.16"/>
+  <path d="M176 250H308M176 205H308M176 295H308" stroke="#ECFEFF" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="286" cy="287" r="34" stroke="#99F6E4" stroke-width="10"/>
+
+  <text x="118" y="446" fill="#ECFEFF" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="600">Rural Water Safety</text>
+  <text x="118" y="516" fill="#BAE6FD" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="500">Arsenic Removal in Shanxi</text>
+  <text x="118" y="580" fill="#99F6E4" font-family="Arial, sans-serif" font-size="32">Field Implementation and Community Training</text>
+</svg>

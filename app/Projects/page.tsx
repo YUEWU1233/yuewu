@@ -47,6 +47,33 @@ const projects: ProjectCard[] = [
     image: "/project/project6/project6.png",
     alt: "Carbon-aware portfolio project preview",
   },
+  {
+    title: "Water Safety & SDG Education Programs in Rural Communities",
+    href: "/Projects/Project7",
+    image: "/project/project7/project7.png",
+    alt: "Water safety and SDG education project preview",
+  },
+  {
+    title:
+      "Rural Water Safety Intervention: Arsenic Removal and Community Implementation in Shanxi",
+    href: "/Projects/Project8",
+    image: "/project/project8/project8.png",
+    alt: "Rural water safety intervention project preview",
+  },
+  {
+    title:
+      "Electrochemically Enhanced Iron–Sand Filtration System for High-Efficiency Arsenic Removal",
+    href: "/Projects/Project9",
+    image: "/project/project9/project9.png",
+    alt: "Electrochemical iron-sand filtration system preview",
+  },
+  {
+    title:
+      "Floating Air-Cathode Electrocoagulation Sand Filter for Efficient Arsenic Removal",
+    href: "/Projects/Project10",
+    image: "/project/project10/project10.png",
+    alt: "Floating air-cathode electrocoagulation sand filter preview",
+  },
 ];
 
 export default function ProjectsPage() {
