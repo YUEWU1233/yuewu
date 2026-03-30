@@ -79,7 +79,7 @@ export default function Home() {
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
                   <dt className="text-slate-500 text-xs md:text-sm">Research</dt>
-                  <dd className="mt-1 font-semibold text-slate-900 text-xs md:text-sm">Sustainable Systems & Decarbonization</dd>
+                  <dd className="mt-1 break-words font-semibold leading-snug text-slate-900 text-xs md:text-sm">Sustainable Systems & Decarbonization</dd>
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-white/70 p-3">
                   <dt className="text-slate-500 text-xs md:text-sm">Current</dt>
