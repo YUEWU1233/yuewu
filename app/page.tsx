@@ -94,16 +94,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Link
             href="/Projects"
-            className="group rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group min-w-0 rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.08em] md:tracking-[0.14em] text-slate-500">
               Work
             </p>
             <h2
-              className="mt-2 text-2xl text-slate-900"
+              className="mt-2 break-words text-2xl text-slate-900"
               style={{
                 fontFamily:
                   'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
@@ -111,20 +111,20 @@ export default function Home() {
             >
               Projects
             </h2>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-2 break-words text-sm text-slate-700">
               Interesting academic projects.
             </p>
           </Link>
 
           <Link
             href="/Publication"
-            className="group rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group min-w-0 rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.08em] md:tracking-[0.14em] text-slate-500">
               Research
             </p>
             <h2
-              className="mt-2 text-2xl text-slate-900"
+              className="mt-2 break-words text-2xl text-slate-900"
               style={{
                 fontFamily:
                   'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
@@ -132,20 +132,20 @@ export default function Home() {
             >
               Publications
             </h2>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-2 break-words text-sm text-slate-700">
               Papers and patents on water safety.
             </p>
           </Link>
 
           <Link
             href="/Gallery"
-            className="group rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group min-w-0 rounded-2xl border border-white/50 bg-white/75 p-6 shadow-md backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.08em] md:tracking-[0.14em] text-slate-500">
               Photography
             </p>
             <h2
-              className="mt-2 text-2xl text-slate-900"
+              className="mt-2 break-words text-2xl text-slate-900"
               style={{
                 fontFamily:
                   'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
@@ -153,7 +153,7 @@ export default function Home() {
             >
               Gallery
             </h2>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-2 break-words text-sm text-slate-700">
               Travel photos from places and everyday moments.
             </p>
           </Link>
@@ -168,10 +168,10 @@ export default function Home() {
           >
             What I Care About
           </h2>
-          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <article className="rounded-2xl bg-emerald-50 p-4">
+          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <article className="min-w-0 rounded-2xl bg-emerald-50 p-4">
               <h3
-                className="text-2xl font-semibold text-slate-900"
+                className="break-words text-2xl font-semibold text-slate-900"
                 style={{
                   fontFamily:
                     'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
@@ -179,14 +179,14 @@ export default function Home() {
               >
                 Traceability
               </h3>
-              <p className="mt-2 text-sm text-slate-700">
+              <p className="mt-2 break-words text-sm text-slate-700">
                 Making supply chains understandable for users, regulators, and
                 businesses.
               </p>
             </article>
-            <article className="rounded-2xl bg-amber-50 p-4">
+            <article className="min-w-0 rounded-2xl bg-amber-50 p-4">
               <h3
-                className="text-2xl font-semibold text-slate-900"
+                className="break-words text-2xl font-semibold text-slate-900"
                 style={{
                   fontFamily:
                     'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
@@ -194,14 +194,14 @@ export default function Home() {
               >
                 Sustainability
               </h3>
-              <p className="mt-2 text-sm text-slate-700">
+              <p className="mt-2 break-words text-sm text-slate-700">
                 Building product experiences that extend lifespan and reduce
                 waste.
               </p>
             </article>
-            <article className="rounded-2xl bg-cyan-50 p-4">
+            <article className="min-w-0 rounded-2xl bg-cyan-50 p-4">
               <h3
-                className="text-2xl font-semibold text-slate-900"
+                className="break-words text-2xl font-semibold text-slate-900"
                 style={{
                   fontFamily:
                     'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
@@ -209,10 +209,61 @@ export default function Home() {
               >
                 Clarity
               </h3>
-              <p className="mt-2 text-sm text-slate-700">
+              <p className="mt-2 break-words text-sm text-slate-700">
                 Turning complex environmental data into readable, useful
                 interfaces.
               </p>
+            </article>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-3xl border border-white/60 bg-white/70 p-6 shadow-lg backdrop-blur md:p-8">
+          <h2
+            className="text-2xl text-slate-900 md:text-3xl"
+            style={{
+              fontFamily:
+                'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
+            }}
+          >
+            Skills
+          </h2>
+          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <article className="min-w-0 rounded-2xl bg-emerald-50 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-emerald-800">
+                Sustainability Analytics
+              </h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">LCA</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">MFA</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Carbon Footprint</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Decarbonization Strategy</span>
+              </div>
+            </article>
+
+            <article className="min-w-0 rounded-2xl bg-cyan-50 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-cyan-900">
+                Data & Modeling
+              </h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Python</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Excel</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Data Visualization</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Scenario Analysis</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">SQL</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Power BI</span>
+              </div>
+            </article>
+
+            <article className="min-w-0 rounded-2xl bg-amber-50 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-amber-900">
+                Field & Communication
+              </h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Project Coordination</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Stakeholder Engagement</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Technical Writing</span>
+                <span className="max-w-full break-words rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700">Workshop Support</span>
+              </div>
             </article>
           </div>
         </section>
@@ -291,7 +342,7 @@ export default function Home() {
         </section>
 
         <section className="mt-10 rounded-3xl bg-amber-50 p-6 text-slate-800 shadow-xl md:p-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-4 md:flex-row md:flex-wrap md:items-end md:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
                 Contact
@@ -306,7 +357,7 @@ export default function Home() {
                 Let us build something meaningful.
               </h2>
             </div>
-            <div className="mt-2 flex items-center gap-4">
+            <div className="mt-2 flex flex-wrap items-center gap-4 md:shrink-0">
               <a
                 href="mailto:yue.wu14@gmail.com"
                 aria-label="Email"

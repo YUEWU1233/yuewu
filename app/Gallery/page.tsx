@@ -1,8 +1,14 @@
 ﻿import TravelHistoryMap from "./TravelHistoryMap";
-import { getGalleryPhotoCounts } from "../lib/gallery";
+import { getGalleryPhotoCounts, getMilestonePhotoCount } from "../lib/gallery";
+import MilestoneTimelineCard from "./MilestoneTimelineCard";
+import { getMilestoneTimeline } from "./milestonesData";
 
 export default function GalleryPage() {
   const photoCounts = getGalleryPhotoCounts();
+  const milestoneTimeline = getMilestoneTimeline().map((item) => ({
+    ...item,
+    photos: getMilestonePhotoCount(item.year),
+  }));
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12">
@@ -21,6 +27,7 @@ export default function GalleryPage() {
       </div>
 
       <TravelHistoryMap photoCounts={photoCounts} />
+      <MilestoneTimelineCard timeline={milestoneTimeline} />
     </main>
   );
 }

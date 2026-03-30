@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const GALLERY_ROOT = path.join(process.cwd(), "public", "gallery");
+const MILESTONES_ROOT = path.join(GALLERY_ROOT, "milestones");
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"]);
 const COUNTRY_FOLDER_ALIASES: Record<string, string[]> = {
   denmark: ["danmark"],
@@ -66,6 +67,8 @@ export function getGalleryPhotoCounts(): Record<string, number> {
   const folders = safeReadDir(GALLERY_ROOT);
 
   for (const folderName of folders) {
+    if (folderName === "milestones") continue;
+
     const folderPath = path.join(GALLERY_ROOT, folderName);
 
     try {
@@ -80,4 +83,38 @@ export function getGalleryPhotoCounts(): Record<string, number> {
   }
 
   return counts;
+}
+
+export function getMilestoneImages(year: number): Array<{ src: string; alt: string }> {
+  const folderName = String(year);
+  const candidates = [
+    {
+      dirPath: path.join(MILESTONES_ROOT, folderName),
+      publicPrefix: `/gallery/milestones/${folderName}`,
+    },
+    {
+      dirPath: path.join(GALLERY_ROOT, folderName),
+      publicPrefix: `/gallery/${folderName}`,
+    },
+  ];
+
+  const files = candidates
+    .flatMap((candidate) =>
+      safeReadDir(candidate.dirPath)
+        .filter(isImageFile)
+        .map((fileName) => ({
+          src: `${candidate.publicPrefix}/${fileName}`,
+          fileName,
+        }))
+    )
+    .sort((a, b) => a.fileName.localeCompare(b.fileName));
+
+  return files.map((item, index) => ({
+    src: item.src,
+    alt: `Milestone ${year} photo ${index + 1}`,
+  }));
+}
+
+export function getMilestonePhotoCount(year: number): number {
+  return getMilestoneImages(year).length;
 }

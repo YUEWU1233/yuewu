@@ -393,7 +393,13 @@ const countries: CountryShape[] = [
 const LOCAL_COUNTRIES_GEOJSON_URL = withBasePath("/geojsons/visited-countries.geojson");
 const LOCAL_WORLD_GEOJSON_URL = withBasePath("/geojsons/world-countries.geojson");
 const CYPRUS_RELATED_NAMES = new Set(["northern cyprus", "cyprus no mans area"]);
-const PRESERVE_ALL_PARTS_KEYS = new Set(["cyprus", "greece", "norway", "italy"]);
+const CHINA_RELATED_NAMES = new Set([
+  "hong kong s.a.r.",
+  "hong kong",
+  "taiwan",
+  "taiwan province of china",
+]);
+const PRESERVE_ALL_PARTS_KEYS = new Set(["cyprus", "greece", "norway", "italy", "china"]);
 
 const LOCAL_MAP_STYLE = {
   version: 8,
@@ -519,6 +525,14 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
           data: visitedGeoJson as never,
         });
 
+        map.addSource("visited-label-points", {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: [],
+          } as never,
+        });
+
         map.addLayer({
           id: "visited-fill",
           type: "fill",
@@ -553,7 +567,7 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
         map.addLayer({
           id: "visited-label",
           type: "symbol",
-          source: "visited-countries",
+          source: "visited-label-points",
           layout: {
             "text-field": ["get", "name"],
             "text-size": ["interpolate", ["linear"], ["zoom"], 3, 10, 6, 13],
@@ -618,6 +632,10 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
 
                 if (!country) return null;
 
+                const mergedIntoChina = country.key === "taiwan";
+                const displayKey = mergedIntoChina ? "china" : country.key;
+                const displayName = mergedIntoChina ? "China" : country.name;
+
                 const originalProperties =
                   feature.properties && typeof feature.properties === "object"
                     ? (feature.properties as Record<string, unknown>)
@@ -627,12 +645,12 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
                   geometry: keepMainlandGeometry(
                     feature.geometry as Record<string, unknown> | undefined,
                     country.center,
-                    PRESERVE_ALL_PARTS_KEYS.has(country.key)
+                    PRESERVE_ALL_PARTS_KEYS.has(displayKey)
                   ),
                   properties: {
                     ...originalProperties,
-                    key: country.key,
-                    name: country.name,
+                    key: displayKey,
+                    name: displayName,
                   },
                 };
               })
@@ -667,7 +685,71 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
               })
               .filter(Boolean);
 
-            const mergedFeatures = [...normalizedFeatures, ...cyprusExtraFeatures];
+            const chinaExtraFeatures = worldFeatures
+              .map((feature: Record<string, unknown>) => {
+                const properties =
+                  feature.properties && typeof feature.properties === "object"
+                    ? (feature.properties as Record<string, unknown>)
+                    : {};
+                const rawName = String(properties.name || "").toLowerCase();
+
+                if (!CHINA_RELATED_NAMES.has(rawName)) {
+                  return null;
+                }
+
+                return {
+                  ...feature,
+                  geometry: keepMainlandGeometry(
+                    feature.geometry as Record<string, unknown> | undefined,
+                    [114.2, 22.3],
+                    true
+                  ),
+                  properties: {
+                    ...properties,
+                    key: "china",
+                    name: "China",
+                  },
+                };
+              })
+              .filter(Boolean);
+
+            const mergedFeatures = [
+              ...normalizedFeatures,
+              ...cyprusExtraFeatures,
+              ...chinaExtraFeatures,
+            ];
+
+            const uniqueKeys = new Set(
+              mergedFeatures
+                .map((feature) => {
+                  const current = feature as Record<string, unknown>;
+                  const properties =
+                    current.properties && typeof current.properties === "object"
+                      ? (current.properties as Record<string, unknown>)
+                      : {};
+                  return String(properties.key || "");
+                })
+                .filter((key) => key !== "")
+            );
+
+            const labelPointFeatures = Array.from(uniqueKeys)
+              .map((key) => {
+                const country = countryByKey.get(key);
+                if (!country) return null;
+
+                return {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: country.center,
+                  },
+                  properties: {
+                    key: country.key,
+                    name: country.name,
+                  },
+                };
+              })
+              .filter(Boolean);
 
             const source = map.getSource("visited-countries");
             if (source && "setData" in source) {
@@ -675,8 +757,17 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
                 type: "FeatureCollection",
                 features: mergedFeatures,
               });
-              hasLoadedCountriesRef.current = true;
             }
+
+            const labelSource = map.getSource("visited-label-points");
+            if (labelSource && "setData" in labelSource) {
+              (labelSource as unknown as { setData: (d: unknown) => void }).setData({
+                type: "FeatureCollection",
+                features: labelPointFeatures,
+              });
+            }
+
+            hasLoadedCountriesRef.current = true;
           } catch (error) {
             setLoadError("Unable to load precise country boundaries right now.");
             console.error(error);
