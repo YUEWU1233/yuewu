@@ -825,7 +825,16 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
             aria-label="Interactive travel map"
           />
           <p className="mt-2 text-xs text-slate-500">
-            The political administrative boundaries are provided by the open database geoBoundaries under the CC BY 4.0 license. The use of the boundary data does not represent any political stance of the author.
+            The political administrative boundaries are provided by the open database geoBoundaries under the CC BY 4.0 license. The use of the boundary data does not represent any political stance of the author. Inspired By{" "}
+            <a
+              href="https://wenyuliu.ch/journey/travel-history"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
+            >
+              this page
+            </a>
+            .
           </p>
           {loadError ? (
             <p className="mt-2 text-xs text-rose-600">{loadError}</p>
