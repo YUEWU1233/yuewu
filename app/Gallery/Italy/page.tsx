@@ -1,13 +1,11 @@
-import CountryWall from "../CountryWall";
+import CountryGalleryPage from "../CountryGalleryPage";
 
-export default function ItalyPage() {
+export default function Page() {
   return (
-    <CountryWall
-      title="Italy"
-      images={[
-        { src: "/gallery/italy/Florence.jpg", alt: "Italy" },
-        { src: "/gallery/italy/Venise.jpg", alt: "Venice, Italy" },
-      ]}
+    <CountryGalleryPage
+      countryKey="italy"
+      countryName="Italy"
     />
   );
 }
+

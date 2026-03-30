@@ -17,6 +17,10 @@ type CountryShape = {
   center: [number, number];
 };
 
+type TravelHistoryMapProps = {
+  photoCounts: Record<string, number>;
+};
+
 type Position = [number, number];
 
 function ringAreaAbs(ring: Position[]): number {
@@ -36,9 +40,14 @@ function ringAreaAbs(ring: Position[]): number {
 
 function keepMainlandGeometry(
   geometry: Record<string, unknown> | undefined,
-  center: Position
+  center: Position,
+  preserveAllParts = false
 ): Record<string, unknown> | undefined {
   if (!geometry || typeof geometry !== "object") return geometry;
+
+  if (preserveAllParts) {
+    return geometry;
+  }
 
   const type = geometry.type;
   const coords = geometry.coordinates;
@@ -164,7 +173,7 @@ const countries: CountryShape[] = [
     iso3: "CHE",
     name: "Switzerland",
     href: "/Gallery/Switzerland",
-    photos: 5,
+    photos: 10,
     lastVisit: "2026",
     note: "Alpine trains, clear lakes, and mountain air.",
     center: [8.2, 46.8],
@@ -184,7 +193,7 @@ const countries: CountryShape[] = [
     iso3: "ITA",
     name: "Italy",
     href: "/Gallery/Italy",
-    photos: 2,
+    photos: 5,
     lastVisit: "2025",
     note: "Florence tones and Venice reflections.",
     center: [12.4, 42.8],
@@ -204,9 +213,9 @@ const countries: CountryShape[] = [
     iso3: "ESP",
     name: "Spain",
     href: "/Gallery/Spain",
-    photos: 0,
+    photos: 3,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "Street scenes, architecture, and travel moments.",
     center: [-3.8, 40.2],
   },
   {
@@ -254,9 +263,9 @@ const countries: CountryShape[] = [
     iso3: "DEU",
     name: "Germany",
     href: "/Gallery/Germany",
-    photos: 0,
+    photos: 3,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "Urban walks and snapshots from daily travel.",
     center: [10.4, 51.0],
   },
   {
@@ -324,9 +333,9 @@ const countries: CountryShape[] = [
     iso3: "NOR",
     name: "Norway",
     href: "/Gallery/Norway",
-    photos: 0,
+    photos: 10,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "Fjords, coastlines, and northern landscapes.",
     center: [8.5, 61.0],
   },
   {
@@ -334,9 +343,9 @@ const countries: CountryShape[] = [
     iso3: "CYP",
     name: "Cyprus",
     href: "/Gallery/Cyprus",
-    photos: 0,
+    photos: 7,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "Coastal views and historic town textures.",
     center: [33.0, 35.0],
   },
   {
@@ -344,9 +353,9 @@ const countries: CountryShape[] = [
     iso3: "SRB",
     name: "Serbia",
     href: "/Gallery/Serbia",
-    photos: 0,
+    photos: 3,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "City corners and atmosphere in motion.",
     center: [20.8, 44.2],
   },
   {
@@ -354,9 +363,9 @@ const countries: CountryShape[] = [
     iso3: "POL",
     name: "Poland",
     href: "/Gallery/Poland",
-    photos: 0,
+    photos: 20,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "A larger collection across cities and landmarks.",
     center: [19.2, 52.1],
   },
   {
@@ -364,9 +373,9 @@ const countries: CountryShape[] = [
     iso3: "TUN",
     name: "Tunisia",
     href: "/Gallery/Tunisia",
-    photos: 0,
+    photos: 8,
     lastVisit: "Visited",
-    note: "Photo collection coming soon.",
+    note: "Medina details, coast, and daily life moments.",
     center: [9.4, 34.2],
   },
   {
@@ -383,6 +392,8 @@ const countries: CountryShape[] = [
 
 const LOCAL_COUNTRIES_GEOJSON_URL = withBasePath("/geojsons/visited-countries.geojson");
 const LOCAL_WORLD_GEOJSON_URL = withBasePath("/geojsons/world-countries.geojson");
+const CYPRUS_RELATED_NAMES = new Set(["northern cyprus", "cyprus no mans area"]);
+const PRESERVE_ALL_PARTS_KEYS = new Set(["cyprus", "greece", "norway", "italy"]);
 
 const LOCAL_MAP_STYLE = {
   version: 8,
@@ -398,24 +409,51 @@ const LOCAL_MAP_STYLE = {
   ],
 };
 
-export default function TravelHistoryMap() {
+const COMING_SOON_NOTE = "Photo collection coming soon.";
+
+export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const hasLoadedCountriesRef = useRef(false);
 
+  const countriesWithCounts = useMemo(
+    () =>
+      countries.map((country) => {
+        const photos = photoCounts[country.key] ?? 0;
+
+        return {
+          ...country,
+          photos,
+          note:
+            photos === 0
+              ? COMING_SOON_NOTE
+              : country.note === COMING_SOON_NOTE
+                ? "Photo collection available."
+                : country.note,
+        };
+      }),
+    [photoCounts]
+  );
+
   const countryByIso3 = useMemo(() => {
     const map = new Map<string, CountryShape>();
-    countries.forEach((country) => map.set(country.iso3, country));
+    countriesWithCounts.forEach((country) => map.set(country.iso3, country));
     return map;
-  }, []);
+  }, [countriesWithCounts]);
 
   const countryByName = useMemo(() => {
     const map = new Map<string, CountryShape>();
-    countries.forEach((country) => map.set(country.name.toLowerCase(), country));
+    countriesWithCounts.forEach((country) => map.set(country.name.toLowerCase(), country));
     return map;
-  }, []);
+  }, [countriesWithCounts]);
+
+  const countryByKey = useMemo(() => {
+    const map = new Map<string, CountryShape>();
+    countriesWithCounts.forEach((country) => map.set(country.key, country));
+    return map;
+  }, [countriesWithCounts]);
 
   const visitedGeoJson = useMemo(
     () => ({
@@ -426,8 +464,8 @@ export default function TravelHistoryMap() {
   );
 
   const selected = useMemo(
-    () => countries.find((country) => country.key === selectedKey) ?? null,
-    [selectedKey]
+    () => countriesWithCounts.find((country) => country.key === selectedKey) ?? null,
+    [countriesWithCounts, selectedKey]
   );
 
   useEffect(() => {
@@ -576,7 +614,7 @@ export default function TravelHistoryMap() {
                 const country =
                   countryByIso3.get(String(iso3)) ||
                   countryByName.get(rawName) ||
-                  (props.key ? countries.find((item) => item.key === props.key) : undefined);
+                  (props.key ? countryByKey.get(String(props.key)) : undefined);
 
                 if (!country) return null;
 
@@ -588,7 +626,8 @@ export default function TravelHistoryMap() {
                   ...feature,
                   geometry: keepMainlandGeometry(
                     feature.geometry as Record<string, unknown> | undefined,
-                    country.center
+                    country.center,
+                    PRESERVE_ALL_PARTS_KEYS.has(country.key)
                   ),
                   properties: {
                     ...originalProperties,
@@ -599,11 +638,42 @@ export default function TravelHistoryMap() {
               })
               .filter(Boolean);
 
+            const worldFeatures = Array.isArray(worldData?.features) ? worldData.features : [];
+            const cyprusExtraFeatures = worldFeatures
+              .map((feature: Record<string, unknown>) => {
+                const properties =
+                  feature.properties && typeof feature.properties === "object"
+                    ? (feature.properties as Record<string, unknown>)
+                    : {};
+                const rawName = String(properties.name || "").toLowerCase();
+
+                if (!CYPRUS_RELATED_NAMES.has(rawName)) {
+                  return null;
+                }
+
+                return {
+                  ...feature,
+                  geometry: keepMainlandGeometry(
+                    feature.geometry as Record<string, unknown> | undefined,
+                    [33.0, 35.0],
+                    true
+                  ),
+                  properties: {
+                    ...properties,
+                    key: "cyprus",
+                    name: "Cyprus",
+                  },
+                };
+              })
+              .filter(Boolean);
+
+            const mergedFeatures = [...normalizedFeatures, ...cyprusExtraFeatures];
+
             const source = map.getSource("visited-countries");
             if (source && "setData" in source) {
               (source as unknown as { setData: (d: unknown) => void }).setData({
                 type: "FeatureCollection",
-                features: normalizedFeatures,
+                features: mergedFeatures,
               });
               hasLoadedCountriesRef.current = true;
             }
@@ -623,7 +693,7 @@ export default function TravelHistoryMap() {
         mapRef.current = null;
       }
     };
-  }, [countryByIso3, countryByName, visitedGeoJson]);
+  }, [countryByIso3, countryByKey, countryByName, visitedGeoJson]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -718,7 +788,7 @@ export default function TravelHistoryMap() {
                 Pick a highlighted country on the map. The info card will update with visit details and a direct link to that country page.
               </p>
               <div className="mt-6 rounded-xl border border-emerald-100 bg-emerald-50 p-4 text-sm text-emerald-800">
-                {countries.length} countries and regions highlighted in this travel collection.
+                {countriesWithCounts.length} countries and regions highlighted in this travel collection.
               </div>
             </>
           )}

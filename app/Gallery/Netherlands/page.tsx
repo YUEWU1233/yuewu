@@ -1,17 +1,11 @@
-import CountryWall from "../CountryWall";
+import CountryGalleryPage from "../CountryGalleryPage";
 
-export default function NetherlandsPage() {
+export default function Page() {
   return (
-    <CountryWall
-      title="Netherlands"
-      images={[
-        { src: "/gallery/netherlands/Netherlands.jpg", alt: "Netherlands" },
-        { src: "/gallery/netherlands/Netherlands1.jpg", alt: "Netherlands" },
-        { src: "/gallery/netherlands/Netherlands2.jpg", alt: "Netherlands" },
-        { src: "/gallery/netherlands/Netherlands3.jpg", alt: "Netherlands" },
-        { src: "/gallery/netherlands/Netherlands4.jpg", alt: "Netherlands" },
-        { src: "/gallery/netherlands/Netherlands5.jpg", alt: "Netherlands" },
-      ]}
+    <CountryGalleryPage
+      countryKey="netherlands"
+      countryName="Netherlands"
     />
   );
 }
+

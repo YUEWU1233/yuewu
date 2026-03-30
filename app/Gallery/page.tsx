@@ -1,6 +1,9 @@
 ﻿import TravelHistoryMap from "./TravelHistoryMap";
+import { getGalleryPhotoCounts } from "../lib/gallery";
 
 export default function GalleryPage() {
+  const photoCounts = getGalleryPhotoCounts();
+
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12">
       <div className="mb-8 md:mb-10">
@@ -17,7 +20,7 @@ export default function GalleryPage() {
         </p>
       </div>
 
-      <TravelHistoryMap />
+      <TravelHistoryMap photoCounts={photoCounts} />
     </main>
   );
 }

@@ -1,10 +1,11 @@
-import CountryWall from "../CountryWall";
+import CountryGalleryPage from "../CountryGalleryPage";
 
-export default function HungaryPage() {
+export default function Page() {
   return (
-    <CountryWall
-      title="Hungary"
-      images={[{ src: "/gallery/hungary/Hungary.jpg", alt: "Hungary" }]}
+    <CountryGalleryPage
+      countryKey="hungary"
+      countryName="Hungary"
     />
   );
 }
+

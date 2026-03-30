@@ -1,6 +1,11 @@
-﻿import ComingSoonCountry from "../ComingSoonCountry";
+import CountryGalleryPage from "../CountryGalleryPage";
 
 export default function Page() {
-  return <ComingSoonCountry countryName="United States" />;
+  return (
+    <CountryGalleryPage
+      countryKey="united-states"
+      countryName="United States"
+    />
+  );
 }
 

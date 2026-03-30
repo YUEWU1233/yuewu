@@ -1,10 +1,11 @@
-import CountryWall from "../CountryWall";
+import CountryGalleryPage from "../CountryGalleryPage";
 
-export default function GreecePage() {
+export default function Page() {
   return (
-    <CountryWall
-      title="Greece"
-      images={[{ src: "/gallery/greece/Gallery2.jpg", alt: "Greece" }]}
+    <CountryGalleryPage
+      countryKey="greece"
+      countryName="Greece"
     />
   );
 }
+

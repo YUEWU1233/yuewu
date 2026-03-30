@@ -1,16 +1,11 @@
-import CountryWall from "../CountryWall";
+import CountryGalleryPage from "../CountryGalleryPage";
 
-export default function SwitzerlandPage() {
+export default function Page() {
   return (
-    <CountryWall
-      title="Switzerland"
-      images={[
-        { src: "/gallery/switzerland/Switzerland.jpg", alt: "Switzerland" },
-        { src: "/gallery/switzerland/Switzerland1.jpg", alt: "Switzerland" },
-        { src: "/gallery/switzerland/Switzerland2.jpg", alt: "Switzerland" },
-        { src: "/gallery/switzerland/Switzerland3.jpg", alt: "Switzerland" },
-        { src: "/gallery/switzerland/Bern1.jpg", alt: "Bern, Switzerland" },
-      ]}
+    <CountryGalleryPage
+      countryKey="switzerland"
+      countryName="Switzerland"
     />
   );
 }
+

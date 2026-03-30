@@ -1,14 +1,11 @@
-import CountryWall from "../CountryWall";
+import CountryGalleryPage from "../CountryGalleryPage";
 
-export default function BelgiumPage() {
+export default function Page() {
   return (
-    <CountryWall
-      title="Belgium"
-      images={[
-        { src: "/gallery/belgium/Belgium.jpg", alt: "Belgium" },
-        { src: "/gallery/belgium/Belgium1.jpg", alt: "Belgium" },
-        { src: "/gallery/belgium/Belgium2.jpg", alt: "Belgium" },
-      ]}
+    <CountryGalleryPage
+      countryKey="belgium"
+      countryName="Belgium"
     />
   );
 }
+
