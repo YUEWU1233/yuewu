@@ -47,7 +47,7 @@ export default function Project1Page() {
         <p className="mt-4 text-sm leading-7 text-slate-700 md:text-base">
           The automotive industry, responsible for 10% of global CO2 emissions,
           faces significant challenges in reducing its carbon footprint, despite
-          ambitious goals like the EU's 55% emission reduction by 2030 and the
+          ambitious goals like the EU&apos;s 55% emission reduction by 2030 and the
           2035 thermal vehicle ban. Issues such as EV battery disposal and slow
           adoption of EVs persist. Sonceboz SA, a Swiss leader in mechatronic
           systems, is committed to sustainability through energy-saving
@@ -61,7 +61,7 @@ export default function Project1Page() {
           contemporary automotive manufacturing, serving as essential components
           in vehicle functionality. Sonceboz has established itself as a leading
           producer of actuators, recognized for their innovation, reliability,
-          high performance, and safety. The company's technological expertise
+          high performance, and safety. The company&apos;s technological expertise
           meets the demands of the industry, as evidenced by its collaboration
           with many globally renowned car manufacturers. However, the focus
           extends beyond technological capability to the environmental impact of

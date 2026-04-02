@@ -22,7 +22,7 @@ export default function Project7Page() {
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-emerald-100">
           <Image
-            src={withBasePath("/project/project7/project7.svg")}
+            src={withBasePath("/project/project7/project7.png")}
             alt="Water safety and SDG education programs project preview"
             width={1400}
             height={840}

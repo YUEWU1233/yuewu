@@ -32,11 +32,11 @@ export default function Project4Page() {
         </div>
 
         <p className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-base leading-relaxed text-slate-700 md:text-lg">
-          This project is part of Logitech's broader decarbonization
+          This project is part of Logitech&apos;s broader decarbonization
           initiative, aiming to enhance product-level transparency and
           sustainability. It focuses on developing a Digital Product Passport
           (DPP) that integrates carbon footprint data, lifecycle information,
-          and user interaction, supporting Logitech's transition toward
+          and user interaction, supporting Logitech&apos;s transition toward
           low-carbon and circular product design.
         </p>
 
@@ -48,7 +48,7 @@ export default function Project4Page() {
 
         <p className="mt-4 text-sm leading-7 text-slate-700 md:text-base">
           At its core, I developed a dynamic carbon emission calculator that
-          leverages Logitech's internal carbon database to estimate
+          leverages Logitech&apos;s internal carbon database to estimate
           product-level emissions across the full lifecycle. Unlike static
           carbon labels, this model incorporates real-world usage scenarios,
           including product lifespan, repair frequency, and replacement
@@ -81,7 +81,7 @@ export default function Project4Page() {
         <p className="mt-4 text-sm leading-7 text-slate-700 md:text-base">
           The system is designed to support both internal decision-making (for
           example product design and sustainability strategy) and external
-          transparency, aligning with emerging regulations such as the EU's
+          transparency, aligning with emerging regulations such as the EU&apos;s
           Ecodesign for Sustainable Products Regulation (ESPR).
         </p>
 

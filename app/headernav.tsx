@@ -46,7 +46,7 @@ export default function HeaderNav() {
             href="/"
             className="text-lg hover:text-gray-200 transition-colors"
           >
-            Yue Wu's Page
+            Yue Wu&apos;s Page
           </Link>
           <Link href="/" className="flex items-center">
             <svg

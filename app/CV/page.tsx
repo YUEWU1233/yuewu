@@ -1,10 +1,17 @@
+import Image from "next/image";
 import { withBasePath } from "../lib/basePath";
 
 export default function ResumePage() {
   return (
     <main className="resume-page">
       <div className="header">
-        <img src={withBasePath("/image2.jpg")} alt="Yue Wu" className="photo" />
+        <Image
+          src={withBasePath("/image2.jpg")}
+          alt="Yue Wu"
+          className="photo"
+          width={160}
+          height={160}
+        />
         <div>
           <div className="name">Yue Wu</div>
           <div className="contact-info">
@@ -145,7 +152,7 @@ export default function ResumePage() {
         <div className="job-date">Sept 2024- Present</div>
         <ul>
           <li>
-            Conduct life cycle assessment (LCA) of actuator's key components
+            Conduct life cycle assessment (LCA) of actuator&apos;s key components
             and in-depth analysis of emission factors.
           </li>
           <li>
@@ -239,7 +246,7 @@ export default function ResumePage() {
           </li>
         </ul>
 
-        <div className="job-company">Tsinghua RISE association's social practice Shanxi, China</div>
+        <div className="job-company">Tsinghua RISE association&apos;s social practice Shanxi, China</div>
         <div className="job-title">Advisor</div>
         <div className="job-date">July 2018 -- Aug 2018</div>
         <ul>
@@ -249,11 +256,11 @@ export default function ResumePage() {
           </li>
           <li>
             Led the construction and maintenance of NIS filters for drinking
-            water arsenic removal, facilitating international exchange students'
+            water arsenic removal, facilitating international exchange students&apos;
             engagement.
           </li>
           <li>
-            Award: the second prize of 2018 "National youth service" social
+            Award: the second prize of 2018 &quot;National youth service&quot; social
             practice.
           </li>
         </ul>

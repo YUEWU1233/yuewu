@@ -39,7 +39,7 @@ export default function Project5Page() {
         </h2>
 
         <p className="mt-4 text-sm leading-7 text-slate-700 md:text-base">
-          The objective of this project is to understand how Geneva's residential heating system can transition toward carbon neutrality by 2050, given its current heavy reliance on fossil fuels.
+          The objective of this project is to understand how Geneva&apos;s residential heating system can transition toward carbon neutrality by 2050, given its current heavy reliance on fossil fuels.
         </p>
 
         <p className="mt-4 text-sm leading-7 text-slate-700 md:text-base">

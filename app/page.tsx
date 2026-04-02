@@ -285,7 +285,7 @@ export default function Home() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">Lausanne, Switzerland</p>
                   <h3 className="mt-2 flex items-center gap-2 text-xl font-semibold text-slate-900">
-                    <img
+                    <Image
                       src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e8-1f1ed.svg"
                       alt="Switzerland flag"
                       width="18"
@@ -308,7 +308,7 @@ export default function Home() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cyan-800">Beijing, China</p>
                   <h3 className="mt-2 flex items-center gap-2 text-xl font-semibold text-slate-900">
-                    <img
+                    <Image
                       src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e8-1f1f3.svg"
                       alt="China flag"
                       width="18"
@@ -330,7 +330,7 @@ export default function Home() {
                   <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">Sept 2014 - Jul 2018</p>
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
-                  <img
+                  <Image
                     src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
                     alt="United States flag"
                     width="14"
