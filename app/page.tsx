@@ -276,6 +276,85 @@ export default function Home() {
                 'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
             }}
           >
+            Education
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">Academic foundation in sustainability, engineering, and systems thinking.</p>
+          <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <article className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-100/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">Lausanne, Switzerland</p>
+                  <h3 className="mt-2 flex items-center gap-2 text-xl font-semibold text-slate-900">
+                    <img
+                      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e8-1f1ed.svg"
+                      alt="Switzerland flag"
+                      width="18"
+                      height="18"
+                      className="h-[18px] w-[18px] shrink-0"
+                    />
+                    <span>EPFL-UNIL-IMD (E4S)</span>
+                  </h3>
+                </div>
+                <span className="shrink-0 rounded-full border border-emerald-200 bg-white/90 px-3 py-1 text-xs font-medium text-emerald-800">2023 - 2025</span>
+              </div>
+              <div className="mt-4 rounded-xl bg-transparent p-4">
+                <p className="text-sm font-medium text-slate-800">MSc. in Sustainable Management &amp; Technology</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">Sept 2023 - Aug 2025</p>
+              </div>
+            </article>
+
+            <article className="rounded-2xl border border-cyan-200 bg-gradient-to-br from-cyan-50 via-white to-cyan-100/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cyan-800">Beijing, China</p>
+                  <h3 className="mt-2 flex items-center gap-2 text-xl font-semibold text-slate-900">
+                    <img
+                      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e8-1f1f3.svg"
+                      alt="China flag"
+                      width="18"
+                      height="18"
+                      className="h-[18px] w-[18px] shrink-0"
+                    />
+                    <span>Tsinghua University</span>
+                  </h3>
+                </div>
+                <span className="shrink-0 rounded-full border border-cyan-200 bg-white/90 px-3 py-1 text-xs font-medium text-cyan-900">2014 - 2021</span>
+              </div>
+              <div className="mt-4 space-y-3 rounded-xl bg-transparent p-4">
+                <div>
+                  <p className="text-sm font-medium text-slate-800">MSc. in Environmental Science &amp; Engineering</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">Sept 2018 - Jun 2021</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-800">BEng. in Environmental Engineering</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">Sept 2014 - Jul 2018</p>
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+                  <img
+                    src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                    alt="United States flag"
+                    width="14"
+                    height="14"
+                    className="h-[14px] w-[14px] shrink-0"
+                  />
+                  <span>Undergraduate thesis completed at Penn State University</span>
+                </div>
+                <div className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+                  Minor in Psychology
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-3xl border border-white/60 bg-white/70 p-6 shadow-lg backdrop-blur md:p-8">
+          <h2
+            className="text-2xl text-slate-900 md:text-3xl"
+            style={{
+              fontFamily:
+                'var(--font-literary-serif), "Cormorant Garamond", "Times New Roman", serif',
+            }}
+          >
             Language I Speak
           </h2>
           <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
