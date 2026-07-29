@@ -831,7 +831,15 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
               try {
                 // Debug: log labels count
                 // eslint-disable-next-line no-console
-                console.log('[TravelHistoryMap] loaded label points', labelPointFeatures.length, labelPointFeatures.map(f => (f.properties && (f.properties as Record<string, unknown>).key) || f.properties && (f.properties as Record<string, unknown>).name));
+                console.log(
+                  "[TravelHistoryMap] loaded label points",
+                  labelPointFeatures.length,
+                  labelPointFeatures.map((f) => {
+                    if (!f) return null;
+                    const props = f.properties && typeof f.properties === "object" ? (f.properties as Record<string, unknown>) : {};
+                    return (props.key as unknown) ?? (props.name as unknown) ?? null;
+                  })
+                );
               } catch (err) {
                 // eslint-disable-next-line no-console
                 console.warn('[TravelHistoryMap] error logging label features', err);
