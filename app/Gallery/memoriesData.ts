@@ -1,4 +1,4 @@
-export type MilestoneEntry = {
+export type MemoryEntry = {
   year: number;
   title: string;
   summary: string;
@@ -6,10 +6,10 @@ export type MilestoneEntry = {
 
 const START_YEAR = 1996;
 
-const IMPORTANT_MILESTONES: Record<number, Omit<MilestoneEntry, "year">> = {
+const IMPORTANT_MEMORIES: Record<number, Omit<MemoryEntry, "year">> = {
   1996: {
     title: "Born in Xiamen, Fujian",
-    summary: "Born in 1996 on Xiamen Island, Fujian, in southeastern China. This marks the first milestone of the life timeline.",
+    summary: "Born in 1996 on Xiamen Island, Fujian, in southeastern China. This marks the first memory of the life timeline.",
   },
   1999: {
     title: "Attended Haiyan Kindergarten in Xiamen",
@@ -77,7 +77,7 @@ const IMPORTANT_MILESTONES: Record<number, Omit<MilestoneEntry, "year">> = {
   },
 };
 
-export function getMilestoneYears(): number[] {
+export function getMemoryYears(): number[] {
   const currentYear = new Date().getFullYear();
   const years: number[] = [];
 
@@ -88,20 +88,20 @@ export function getMilestoneYears(): number[] {
   return years;
 }
 
-export function getMilestoneTimeline(): MilestoneEntry[] {
-  return getMilestoneYears().map((year) => {
-    const milestone = IMPORTANT_MILESTONES[year];
+export function getMemoryTimeline(): MemoryEntry[] {
+  return getMemoryYears().map((year) => {
+    const memory = IMPORTANT_MEMORIES[year];
 
-    if (milestone) {
+    if (memory) {
       return {
         year,
-        ...milestone,
+        ...memory,
       };
     }
 
     return {
       year,
-      title: "Milestone Archive",
+      title: "Memory Archive",
       summary: "",
     };
   });

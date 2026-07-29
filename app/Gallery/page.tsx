@@ -1,13 +1,13 @@
 ﻿import TravelHistoryMap from "./TravelHistoryMap";
-import { getGalleryPhotoCounts, getMilestonePhotoCount } from "../lib/gallery";
-import MilestoneTimelineCard from "./MilestoneTimelineCard";
-import { getMilestoneTimeline } from "./milestonesData";
+import { getGalleryPhotoCounts, getMemoryPhotoCount } from "../lib/gallery";
+import MemoryTimelineCard from "./MemoryTimelineCard";
+import { getMemoryTimeline } from "./memoriesData";
 
 export default function GalleryPage() {
   const photoCounts = getGalleryPhotoCounts();
-  const milestoneTimeline = getMilestoneTimeline().map((item) => ({
+  const memoryTimeline = getMemoryTimeline().map((item) => ({
     ...item,
-    photos: getMilestonePhotoCount(item.year),
+    photos: getMemoryPhotoCount(item.year),
   }));
 
   return (
@@ -27,7 +27,7 @@ export default function GalleryPage() {
       </div>
 
       <TravelHistoryMap photoCounts={photoCounts} />
-      <MilestoneTimelineCard timeline={milestoneTimeline} />
+      <MemoryTimelineCard timeline={memoryTimeline} />
     </main>
   );
 }
