@@ -339,6 +339,26 @@ const countries: CountryShape[] = [
     center: [8.5, 61.0],
   },
   {
+    key: "sweden",
+    iso3: "SWE",
+    name: "Sweden",
+    href: "/Gallery/Sweden",
+    photos: 0,
+    lastVisit: "Visited",
+    note: "Photo collection coming soon.",
+    center: [15.0, 62.0],
+  },
+  {
+    key: "iceland",
+    iso3: "ISL",
+    name: "Iceland",
+    href: "/Gallery/Iceland",
+    photos: 0,
+    lastVisit: "Visited",
+    note: "Photo collection coming soon.",
+    center: [-19.0, 64.5],
+  },
+  {
     key: "cyprus",
     iso3: "CYP",
     name: "Cyprus",
@@ -399,7 +419,7 @@ const CHINA_RELATED_NAMES = new Set([
   "taiwan",
   "taiwan province of china",
 ]);
-const PRESERVE_ALL_PARTS_KEYS = new Set(["cyprus", "greece", "norway", "italy", "china"]);
+const PRESERVE_ALL_PARTS_KEYS = new Set(["cyprus", "greece", "italy", "china"]);
 
 const LOCAL_MAP_STYLE = {
   version: 8,
@@ -713,10 +733,39 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
               })
               .filter(Boolean);
 
+            const nordicKeys = new Set(["sweden", "iceland"]);
+            const nordicExtraFeatures = worldFeatures
+              .map((feature: Record<string, unknown>) => {
+                const properties =
+                  feature.properties && typeof feature.properties === "object"
+                    ? (feature.properties as Record<string, unknown>)
+                    : {};
+                const rawName = String(properties.name || "").toLowerCase();
+
+                if (!nordicKeys.has(rawName)) {
+                  return null;
+                }
+
+                const c = countryByKey.get(rawName as string);
+                const center = c?.center ?? [0, 0];
+
+                return {
+                  ...feature,
+                  geometry: keepMainlandGeometry(feature.geometry as Record<string, unknown> | undefined, center, true),
+                  properties: {
+                    ...properties,
+                    key: rawName,
+                    name: (rawName.charAt(0).toUpperCase() + rawName.slice(1)),
+                  },
+                };
+              })
+              .filter(Boolean);
+
             const mergedFeatures = [
               ...normalizedFeatures,
               ...cyprusExtraFeatures,
               ...chinaExtraFeatures,
+              ...nordicExtraFeatures,
             ];
 
             const uniqueKeys = new Set(
@@ -757,6 +806,20 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
                 type: "FeatureCollection",
                 features: mergedFeatures,
               });
+              try {
+                // Debug: log what was loaded for visited features
+                const keys = mergedFeatures
+                  .map((f) => {
+                    const p = f.properties && typeof f.properties === 'object' ? (f.properties as Record<string, unknown>) : {};
+                    return String(p.key || p.name || '');
+                  })
+                  .filter(Boolean);
+                // eslint-disable-next-line no-console
+                console.log('[TravelHistoryMap] loaded visited features', mergedFeatures.length, keys.slice(0, 40));
+              } catch (err) {
+                // eslint-disable-next-line no-console
+                console.warn('[TravelHistoryMap] error logging merged features', err);
+              }
             }
 
             const labelSource = map.getSource("visited-label-points");
@@ -765,6 +828,14 @@ export default function TravelHistoryMap({ photoCounts }: TravelHistoryMapProps)
                 type: "FeatureCollection",
                 features: labelPointFeatures,
               });
+              try {
+                // Debug: log labels count
+                // eslint-disable-next-line no-console
+                console.log('[TravelHistoryMap] loaded label points', labelPointFeatures.length, labelPointFeatures.map(f => (f.properties && (f.properties as Record<string, unknown>).key) || f.properties && (f.properties as Record<string, unknown>).name));
+              } catch (err) {
+                // eslint-disable-next-line no-console
+                console.warn('[TravelHistoryMap] error logging label features', err);
+              }
             }
 
             hasLoadedCountriesRef.current = true;
