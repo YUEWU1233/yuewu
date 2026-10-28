@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import type { MemoryEntry } from "./memoriesData";
 
 type MemoryTimelineCardProps = {
@@ -19,11 +19,6 @@ export default function MemoryTimelineCard({ timeline }: MemoryTimelineCardProps
     () => timeline.find((item) => item.year === selectedYear) ?? timeline[timeline.length - 1],
     [selectedYear, timeline]
   );
-
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log("MemoryTimelineCard selectedYear ->", selectedYear, "selected ->", selected?.year, selected?.title);
-  }, [selectedYear, selected]);
 
   const latestYear = timeline[timeline.length - 1]?.year;
 
@@ -64,16 +59,13 @@ export default function MemoryTimelineCard({ timeline }: MemoryTimelineCardProps
                     <div className="flex items-center justify-between">
                       <button
                         type="button"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // debug: log selection
-                          // eslint-disable-next-line no-console
-                          console.log('MemoryTimelineCard select year', item.year);
-                          setSelectedYear(() => item.year);
-                        }}
-                        className="flex-1 text-left"
+                        onClick={() => setSelectedYear(item.year)}
+                        aria-pressed={active}
+                        aria-controls="selected-memory-year"
+                        aria-label={`Select year ${item.year}`}
+                        className="absolute inset-0 cursor-pointer rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
                         data-year={item.year}
-                      >
+                      />
                         <span
                           className={`absolute -left-[1.02rem] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full border ${
                             active
@@ -83,13 +75,12 @@ export default function MemoryTimelineCard({ timeline }: MemoryTimelineCardProps
                                 : "border-emerald-300 bg-white"
                           }`}
                         />
-                        <span className="pl-4">{item.year}</span>
-                      </button>
+                        <span className="pointer-events-none pl-4">{item.year}</span>
 
                       {hasMemory ? (
                         <Link
                           href={`/Gallery/Memories/${item.year}`}
-                          className={`ml-4 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] ${
+                          className={`relative ml-4 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] ${
                             active
                               ? "bg-white/20 text-emerald-50"
                               : "bg-emerald-100 text-emerald-700"
@@ -106,7 +97,7 @@ export default function MemoryTimelineCard({ timeline }: MemoryTimelineCardProps
           </div>
         </div>
 
-        <aside className="rounded-2xl border border-emerald-100 bg-white p-5">
+        <aside id="selected-memory-year" aria-live="polite" className="rounded-2xl border border-emerald-100 bg-white p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">Selected Year</p>
           <h3 className="mt-2 text-2xl font-semibold text-slate-900">{selected.year}</h3>
 

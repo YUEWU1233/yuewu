@@ -11,6 +11,12 @@ type ProjectCard = {
 
 const projects: ProjectCard[] = [
   {
+    title: "French Vocabulary Flashcards",
+    href: "/Projects/Project11",
+    image: "/project/project11/french-flashcards.svg",
+    alt: "French vocabulary flashcards illustration with B2, C1, and C2 learning levels",
+  },
+  {
     title: "Digital Product Passport and Dynamic Carbon Calculator for Logitech",
     href: "/Projects/Project4",
     image: "/project/project4/project4.png",
@@ -90,7 +96,7 @@ export default function ProjectsPage() {
         </h1>
         <p className="mt-2 max-w-3xl text-sm text-slate-600 md:text-base">
           Selected work in sustainability, lifecycle analytics, digital product
-          passport design, and applied machine learning.
+          passport design, applied machine learning, and language learning tools.
         </p>
       </div>
 

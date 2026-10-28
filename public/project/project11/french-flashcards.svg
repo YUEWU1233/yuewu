@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <rect width="1200" height="750" fill="#ECFDF5"/>
+  <circle cx="1120" cy="60" r="270" fill="#D1FAE5"/>
+  <circle cx="70" cy="740" r="250" fill="#CFFAFE"/>
+  <g font-family="Arial, sans-serif">
+    <text x="90" y="104" font-size="19" font-weight="700" letter-spacing="4" fill="#047857">LANGUAGE LEARNING</text>
+    <text x="90" y="170" font-size="48" font-weight="700" fill="#0F172A">French Vocabulary Flashcards</text>
+    <text x="92" y="214" font-size="23" fill="#475569">A little practice, every day.</text>
+    <rect x="331" y="280" width="570" height="340" rx="28" transform="rotate(7 331 280)" fill="#A7F3D0"/>
+    <rect x="270" y="280" width="570" height="340" rx="28" transform="rotate(-5 270 280)" fill="#6EE7B7"/>
+    <rect x="300" y="270" width="600" height="350" rx="28" fill="white" stroke="#D1FAE5" stroke-width="2"/>
+    <rect x="340" y="307" width="64" height="34" rx="17" fill="#ECFDF5"/>
+    <text x="356" y="330" font-size="18" font-weight="700" fill="#047857">B2</text>
+    <text x="600" y="422" font-size="52" font-weight="700" text-anchor="middle" fill="#0F172A">ambiguïté</text>
+    <text x="600" y="477" font-size="22" text-anchor="middle" fill="#64748B">Il y a une ambiguïté dans cette phrase.</text>
+    <path d="M345 512H855" stroke="#E2E8F0"/>
+    <rect x="465" y="540" width="270" height="46" rx="23" fill="#059669"/>
+    <text x="600" y="570" font-size="19" font-weight="700" text-anchor="middle" fill="white">Flip to reveal translation</text>
+    <text x="90" y="690" font-size="19" fill="#047857">B2 · C1 · C2</text>
+    <text x="1110" y="690" font-size="19" text-anchor="end" fill="#475569">Python / Tkinter</text>
+  </g>
+</svg>
