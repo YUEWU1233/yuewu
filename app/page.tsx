@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
 import { withBasePath } from "./lib/basePath";
+import ContactFormButton from "./components/ContactFormButton";
 
 export default function Home() {
   return (
@@ -437,6 +438,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-4 md:shrink-0">
+              <ContactFormButton />
               <a
                 href="mailto:yue.wu14@gmail.com"
                 aria-label="Email"
