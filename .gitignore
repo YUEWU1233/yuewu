@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Independent admin application
+message-admin/node_modules/
+message-admin/.next/
+!message-admin/.env.example
